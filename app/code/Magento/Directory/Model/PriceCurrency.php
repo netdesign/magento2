@@ -141,7 +141,11 @@ class PriceCurrency implements \Magento\Framework\Pricing\PriceCurrencyInterface
      */
     public function round($price)
     {
-        return round($price, 2);
+        // fabiobuda@netd.it
+        // Change from hardcoded 2 to self::DEFAULT_PRECISION
+        // self::DEFAULT_PRECISION is the standard global configuration for precision
+        // Sept 13 2021
+        return round($price, self::DEFAULT_PRECISION);
     }
 
     /**
